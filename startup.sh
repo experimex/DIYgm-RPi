@@ -6,5 +6,4 @@ fi
 
 ./discoverable.sh &
 sudo node main.js &
-sudo python3 iOS.py &
-sudo python3 Android.py &
+sudo python3 diygm.py &

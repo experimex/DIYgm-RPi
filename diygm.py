@@ -39,15 +39,15 @@ def detection():
     return cpm    
     
 while True:
-	print("iOS - beginning of script")
+	print("Beginning of diygm script")
 
-	#Wait for iOS connection
+	#Wait for app connection
 	while not os.path.exists("transfer.txt"):
 		time.sleep(0.1)
 
-	#Start detection after iOS connection
+	#Start detection after app connection
 	pwm.start(60)
-	print("iOS - connected")
+	print("Connected to app")
 	file = open("transfer.txt","w")
 	while os.path.exists("transfer.txt"):    
 		count_rate = str(detection())
@@ -57,6 +57,6 @@ while True:
 		file.write("new" + count_rate)
 		file.truncate()
 		
-	print("iOS - finished, disconnected")
+	print("End of diygm script (disconnected)")
 	pwm.stop()
 	time.sleep(3)

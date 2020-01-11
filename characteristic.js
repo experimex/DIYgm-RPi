@@ -6,7 +6,7 @@ var BlenoCharacteristic = bleno.Characteristic;
 
 var EchoCharacteristic = function() {
   EchoCharacteristic.super_.call(this, {
-    uuid: 'ec0e',
+    uuid: 'e3754285-8072-458b-a45b-94a0dab36801',
     properties: ['read', 'write', 'notify'],
     value: null
   });
@@ -40,7 +40,7 @@ EchoCharacteristic.prototype.onWriteRequest = function(data, offset, withoutResp
 };
 
 EchoCharacteristic.prototype.onSubscribe = function(maxValueSize, updateValueCallback) {
-  console.log("iOS server - CONNECTED to iPhone");
+  console.log("BLE server - connected to app");
 
   fs.writeFileSync("transfer.txt");
   
@@ -58,7 +58,7 @@ EchoCharacteristic.prototype.onSubscribe = function(maxValueSize, updateValueCal
 EchoCharacteristic.prototype.onUnsubscribe = function() {
   clearInterval(scanFileTimer)
   fs.unlinkSync("transfer.txt")
-  console.log("iOS server - DISCONNECTED from iPhone");
+  console.log("BLE server - disconnected from app");
 
   this._updateValueCallback = null;
 };
